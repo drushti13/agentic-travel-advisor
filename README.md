@@ -22,12 +22,12 @@ The project demonstrates how multiple specialized agents can work together in a 
 
 ## Tech Stack
 
--Programming Language: Python 3.10+
--Large Language Model API: Google Gemini (via google-genai)
--Agent Orchestration: LangGraph
--State Management: TypedDict-based shared state
--Environment Management: python-dotenv
--Optional Caching: JSON-based local cache
+- Programming Language: Python 3.10+
+- Large Language Model API: Google Gemini (via google-genai)
+- Agent Orchestration: LangGraph
+- State Management: TypedDict-based shared state
+- Environment Management: python-dotenv
+- Optional Caching: JSON-based local cache
 
 ## How to Run the Project
 
