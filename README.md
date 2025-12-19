@@ -23,7 +23,7 @@ The project demonstrates how multiple specialized agents can work together in a 
 ## Tech Stack
 
 - Programming Language: Python 3.10+
-- Large Language Model API: Google Gemini (via google-genai)
+- Large Language Model API: Groq (LLaMA 3.1)
 - Agent Orchestration: LangGraph
 - State Management: TypedDict-based shared state
 - Environment Management: python-dotenv
@@ -39,7 +39,7 @@ cd agentic-travel-advisor
 Set up environment variables
 Create a .env file in the root directory:
 ```bash
-GOOGLE_API_KEY=your_gemini_api_key_here
+GROQ_API_KEY==your_groq_api_key_here
 ```
 Run the application
 ```bash
