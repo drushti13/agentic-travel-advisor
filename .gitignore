@@ -7,9 +7,6 @@ __pycache__/
 .venv
 venv/
 
-# OS
-.DS_Store
-
 # LLM cache (optional – recommended)
 .llm_cache.json
 
