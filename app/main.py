@@ -1,29 +1,36 @@
 import os
-from google import genai
+from groq import Groq
 from app.graph import build_graph
 from app.state import TravelState
 
+
+# -----------------------
+# LLM SETUP (GROQ ONLY)
+# -----------------------
+
 def setup_llm():
-    api_key = os.getenv("GOOGLE_API_KEY")
+    api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
-        raise RuntimeError("GOOGLE_API_KEY not set")
+        raise RuntimeError("GROQ_API_KEY not set")
 
-    client = genai.Client(api_key=api_key)
-
-    print("[SETUP] Detecting available Gemini models...")
-    model = "models/gemini-2.5-flash"
-    print(f"[SETUP] Using model: {model}")
+    client = Groq(api_key=api_key)
+    print("[SETUP] Using Groq (llama-3.1-8b-instant)")
 
     def llm(prompt: str) -> str:
-        print("[LLM] Sending prompt to Gemini...")
-        response = client.models.generate_content(
-            model=model,
-            contents=prompt
+        print("[LLM] Sending prompt to Groq...")
+        response = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.3,
         )
-        return response.text
+        return response.choices[0].message.content
 
     return llm
 
+
+# -----------------------
+# MAIN
+# -----------------------
 
 def main():
     llm = setup_llm()

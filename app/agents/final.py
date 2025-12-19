@@ -1,16 +1,16 @@
 def final_agent(state):
     print("[AGENT] Final agent running...")
+    return {
+        "final": f"""
+Travel Plan
 
-    state["final"] = f"""
-✈️ Travel Concierge Plan (Concise)
-
-DESTINATION IDEAS
+Destination Ideas
 {state["inspiration"]}
 
-ITINERARY (3 DAYS)
+3-Day Itinerary
 {state["plan"]}
 
-FLIGHTS & STAY
+Flights & Stay
 {state["booking"]}
 """
-    return state
+    }
